@@ -1,0 +1,28 @@
+category0_train, category0_val, category0_test = split_data(category0_dir)
+category1_train, category1_val, category1_test = split_data(category1_dir)
+​
+def move_files(file_list, target_dir):
+    if os.path.exists(target_dir):
+        shutil.rmtree(target_dir)
+    os.makedirs(target_dir)
+​
+    for f in file_list:
+        shutil.move(f, target_dir)
+​
+move_files(category0_train, os.path.join(train_dir, 'Category0'))
+move_files(category0_val, os.path.join(val_dir, 'Category0'))
+move_files(category0_test, os.path.join(test_dir, 'Category0'))
+​
+move_files(category1_train, os.path.join(train_dir, 'Category1'))
+move_files(category1_val, os.path.join(val_dir, 'Category1'))
+move_files(category1_test, os.path.join(test_dir, 'Category1'))
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+/tmp/ipykernel_9257/26416009.py in <module>
+     10         shutil.move(f, target_dir)
+     11 
+---> 12 move_files(category0_train, os.path.join(train_files, 'Category0'))
+     13 move_files(category0_val, os.path.join(val_file, 'Category0'))
+     14 move_files(category0_test, os.path.join(test_files, 'Category0'))
+
+NameError: name 'train_files' is not defined
